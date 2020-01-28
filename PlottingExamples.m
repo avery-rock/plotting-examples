@@ -3,7 +3,7 @@
 % plots to look for reports. Please follow the saving instructions at the
 % bottom to generate plots that are easy to read and follow.
 
-save_images = 0; % set this to 1 to save outputs
+save_images = 1; % set this to 1 to save outputs
 output_folder = "./output_images";
 
 if save_images &&  ~(isfolder(output_folder))
@@ -209,12 +209,11 @@ set(gcf,'units','pixels','position',[x0,y0,width,height]) % use this command to 
 % https://www.labnol.org/software/tutorials/jpeg-vs-png-image-quality-or-bandwidth/5385/
 
 all_figures = findobj('type', 'figure');
-
-for i = 1:numel(all_figures)
-    try
+try
+    for i = 1:numel(all_figures)
         print(figure(i), sprintf("%s/%s.png", output_folder, figure(i).Name), "-dpng", "-r300");
-    catch
-        fprintf("Did not save images\n\n")
     end
+catch
+    fprintf("Did not save images.\n\n")
 end
 
