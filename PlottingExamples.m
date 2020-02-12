@@ -1,3 +1,10 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Avery Rock, UC Berkeley Mechanical Engineering, avery_rock@berkeley.edu
+% Modified for ME C201 / MATSCI 286, Spring 2020. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% Plotting Examples
 % Run each section one by one below for examples of how we are expecting
 % plots to look for reports. Please follow the saving instructions at the
@@ -211,7 +218,7 @@ set(gcf,'units','pixels','position',[x0,y0,width,height]) % use this command to 
 all_figures = findobj('type', 'figure');
 try
     for i = 1:numel(all_figures)
-        print(figure(i), sprintf("%s/%s.png", output_folder, figure(i).Name), "-dpng", "-r300");
+        print(all_figures(i), sprintf("%s/%s.png", output_folder, all_figures(i).Name), "-dpng", "-r300");
     end
 catch
     fprintf("Did not save images.\n\n")
